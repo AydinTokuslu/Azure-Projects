@@ -168,8 +168,8 @@
               ]
             }
           },
-          "customData": ""
-        },
+          "customData": "#cloud-config\npackage_update: true\npackages:\n  - python3\n  - python3-pip\n  - git\nruncmd:\n  - pip3 install flask\n  - mkdir -p /home/azureuser/roman/templates\n  - cd /home/azureuser/roman\n  - wget https://raw.githubusercontent.com/AydinTokuslu/AWS-DevOps-Projects/refs/heads/main/Project-001-Roman-Numerals-Converter/app.py\n  - cd templates\n  - wget https://raw.githubusercontent.com/AydinTokuslu/AWS-DevOps-Projects/refs/heads/main/Project-001-Roman-Numerals-Converter/templates/index.html\n  - wget https://raw.githubusercontent.com/AydinTokuslu/AWS-DevOps-Projects/refs/heads/main/Project-001-Roman-Numerals-Converter/templates/result.html\n  - cd ..\n  - nohup python3 app.py &"
+    },
         "storageProfile": {
           "imageReference": {
             "publisher": "Canonical",
