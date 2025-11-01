@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageAccountName": {
+      "value": "kittenstorage123"
+    },
+    "createDnsZone": {
+      "value": true
+    },
+    "dnsZoneName": {
+      "value": "devopsdreieich.online"
+    },
+    "fullDomainName": {
+      "value": "kittens.devopsdreieich.online"
+    },
+    "githubZipUrl": {
+      "value": "https://codeload.github.com/AydinTokuslu/AWS-DevOps-Projects/zip/refs/heads/main"
+    },
+    "contentRelativePath": {
+      "value": "Project-101 Kittens-carousel-static-website-ec2/static-web"
+    }
+  }
+}
