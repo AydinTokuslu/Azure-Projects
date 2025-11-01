@@ -1,6 +1,6 @@
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
+  "contentVersion": "1.0.0.1",
   "parameters": {
     "location": {
       "type": "string",
@@ -29,23 +29,16 @@
     },
     "githubZipUrl": {
       "type": "string",
-      "defaultValue": "https://codeload.github.com/AydinTokuslu/AWS-DevOps-Projects/zip/refs/heads/main",
-      "metadata": {
-        "description": "GitHub ZIP URL (codeload) for the repo."
-      }
+      "defaultValue": "https://codeload.github.com/AydinTokuslu/AWS-DevOps-Projects/zip/refs/heads/main"
     },
     "contentRelativePath": {
       "type": "string",
-      "defaultValue": "Project-101 Kittens-carousel-static-website-ec2/static-web",
-      "metadata": {
-        "description": "Path inside the ZIP where the 5 files live."
-      }
+      "defaultValue": "Project-101 Kittens-carousel-static-website-ec2/static-web"
     }
   },
   "variables": {
     "storageSku": "Standard_LRS",
-    "relativeRecord": "[replace(parameters('fullDomainName'), concat('.', parameters('dnsZoneName')), '')]",
-    "webEndpointHost": "[replace(replace(reference(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))).primaryEndpoints.web, 'https://', ''), '/', '')]"
+    "relativeRecord": "[replace(parameters('fullDomainName'), concat('.', parameters('dnsZoneName')), '')]"
   },
   "resources": [
     {
@@ -145,12 +138,12 @@
       "name": "[concat(parameters('dnsZoneName'), '/', variables('relativeRecord'))]",
       "dependsOn": [
         "[resourceId('Microsoft.Network/dnsZones', parameters('dnsZoneName'))]",
-        "[resourceId('Microsoft.Resources/deploymentScripts', 'uploadStaticContentFromGitHub')]"
+        "[resourceId('Microsoft.Storage/storageAccounts/staticWebsite', parameters('storageAccountName'), 'default')]"
       ],
       "properties": {
         "TTL": 3600,
         "CNAMERecord": {
-          "cname": "[variables('webEndpointHost')]"
+          "cname": "[replace(replace(reference(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))).primaryEndpoints.web, 'https://', ''), '/', '')]"
         }
       }
     }
@@ -166,7 +159,7 @@
     },
     "cnameTarget": {
       "type": "string",
-      "value": "[variables('webEndpointHost')]"
+      "value": "[replace(replace(reference(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))).primaryEndpoints.web, 'https://', ''), '/', '')]"
     },
     "deploymentScriptState": {
       "type": "string",
