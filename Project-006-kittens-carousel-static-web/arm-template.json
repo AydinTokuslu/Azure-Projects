@@ -34,13 +34,13 @@
     "dnsZoneName": {
       "type": "string",
       "metadata": {
-        "description": "DNS zone name, e.g., clarusway.us"
+        "description": "DNS zone name, e.g., devopsdreieich.online"
       }
     },
     "fullDomainName": {
       "type": "string",
       "metadata": {
-        "description": "Fully-qualified domain for the site, e.g., kittens.clarusway.us"
+        "description": "Fully-qualified domain for the site, e.g., kittens.devopsdreieich.online"
       }
     },
     "createDnsZone": {

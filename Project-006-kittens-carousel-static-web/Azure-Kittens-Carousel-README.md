@@ -36,9 +36,9 @@ You will:
 3.  The ARM Template should:
     -   Create all new Azure resources automatically.
     -   Accept two parameters:
-        -   DNS zone name (e.g., `clarusway.us`)
+        -   DNS zone name (e.g., `devopsdreieich.online`)
         -   Full domain name for the web app (e.g.,
-            `kittens.clarusway.us`)
+            `kittens.devopsdreieich.online`)
     -   Configure:
         -   A **Storage Account** with Static Website enabled.
         -   An **Azure CDN Profile and Endpoint** connected to the
@@ -107,7 +107,7 @@ Snapshot](./project-006-snapshot.png)
 3.  **Deploy the ARM Template**:
 
     ``` bash
-    az deployment group create      --name kittens-deploy      --resource-group kittens-rg      --template-file arm-template.json      --parameters dnsZoneName=clarusway.us fullDomainName=kittens.clarusway.us
+    az deployment group create      --name kittens-deploy      --resource-group kittens-rg      --template-file arm-template.json      --parameters dnsZoneName=devopsdreieich.online fullDomainName=kittens.devopsdreieich.online
     ```
 
 4.  **Upload your static web files**:
@@ -118,7 +118,7 @@ Snapshot](./project-006-snapshot.png)
 
 5.  **Browse your website** using:
 
-        https://kittens.clarusway.us
+        https://kittens.devopsdreieich.online
 
 ------------------------------------------------------------------------
 
