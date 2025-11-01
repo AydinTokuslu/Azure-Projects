@@ -17,20 +17,6 @@
         "description": "Globally unique name for the Storage Account (lowercase, numbers only)."
       }
     },
-    "profileName": {
-      "type": "string",
-      "defaultValue": "kittens-cdn-profile",
-      "metadata": {
-        "description": "Azure CDN profile name."
-      }
-    },
-    "endpointName": {
-      "type": "string",
-      "defaultValue": "kittens-cdn-endpoint",
-      "metadata": {
-        "description": "Azure CDN endpoint name."
-      }
-    },
     "dnsZoneName": {
       "type": "string",
       "metadata": {
